@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div id="app">
+            <div>
+                <input type="text" v-model="name" placeholder="姓名" />
+                <input type="text" v-model="age" placeholder="年龄" />
+                <input type="text" v-model="email" placeholder="邮箱" />
+                <input type="text" v-model="phone" placeholder="电话号码" />
+            </div>
+            <div>
+                <p>姓名: <span>{{ name }}</span></p>
+                <p>年龄: <span>{{ age }}</span></p>
+                <p>邮箱: <span>{{ email }}</span></p>
+                <div>
+                    <p>电话: <span>{{ phone }}</span></p>
+                </div>
+            </div>
+            <button id="btn">改变名字</button>
+        </div>
+        <script src="./MVVM.js"></script>
+        <script>
+            const data = {
+                name: '',
+                age: 0,
+                email: '',
+                phone: '',
+            };
+            const app = new MVVM('#app', data);
+            const btn = document.querySelector('#btn');
+            btn.addEventListener(
+                'click',
+                () => {
+                    app.setData('name', 'caimengjie');
+                },
+                false
+            );
+        </script>
+    </body>
+</html>
